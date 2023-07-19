@@ -79,7 +79,7 @@
     }
 }
 
-@include media-breakpoint-down(xs){
+@include media-breakpoint-down(mb){
     .table-ulogs{
         th.tb-col-ip {
             display: none;

@@ -87,6 +87,7 @@ $paragraph-margin-bottom:   $para-margin;
 
 $grid-breakpoints: (
   xs:  0,
+  mb:  420px,
   sm:  576px,
   md:  768px,
   lg:  992px,
@@ -103,6 +104,7 @@ $grid-breakpoints: (
 // // Define the maximum width of `.container` for different screen sizes.
 
 $container-max-widths: (
+  mb:  420px,
   sm:  540px,
   md:  720px,
   lg:  960px,

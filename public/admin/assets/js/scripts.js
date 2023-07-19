@@ -16,7 +16,6 @@
       _header_menu = 'nk-header-menu',
       _sidebar = 'nk-sidebar',
       _sidebar_mob = 'nk-sidebar-mobile',
-      _app_sidebar = 'nk-apps-sidebar',
       //breakpoints
   _break = NioApp.Break;
 
@@ -30,7 +29,6 @@
 
   NioApp.ClassBody = function () {
     NioApp.AddInBody(_sidebar);
-    NioApp.AddInBody(_app_sidebar);
   }; // ClassInit @v1.0
 
 
@@ -38,15 +36,8 @@
     NioApp.BreakClass('.' + _header_menu, _break.lg, {
       timeOut: 0
     });
-    NioApp.BreakClass('.' + _sidebar, _break.lg, {
-      timeOut: 0,
-      classAdd: _sidebar_mob
-    });
     $win.on('resize', function () {
       NioApp.BreakClass('.' + _header_menu, _break.lg);
-      NioApp.BreakClass('.' + _sidebar, _break.lg, {
-        classAdd: _sidebar_mob
-      });
     });
   }; // Code Prettify @v1.0
 
@@ -292,6 +283,21 @@
       if (NioApp.Win.width < _break.xl || NioApp.Win.width < toggleBreak) {
         NioApp.Toggle.removed($toggle.data('target'), attr);
       }
+    });
+  }; // Compact Sidebar @v1.0
+
+
+  NioApp.sbCompact = function () {
+    var toggle = '.nk-nav-compact',
+        $toggle = $(toggle),
+        $content = $('[data-content]');
+    $toggle.on('click', function (e) {
+      e.preventDefault();
+      var $self = $(this),
+          get_target = $self.data('target'),
+          $self_content = $('[data-content=' + get_target + ']');
+      $self.toggleClass('compact-active');
+      $self_content.toggleClass('is-compact');
     });
   }; // Animate FormSearch @v1.0
 
@@ -920,6 +926,7 @@
     NioApp.coms.docReady.push(NioApp.Picker.init);
     NioApp.coms.docReady.push(NioApp.Addons.Init);
     NioApp.coms.docReady.push(NioApp.Wizard);
+    NioApp.coms.docReady.push(NioApp.sbCompact);
     NioApp.coms.winLoad.push(NioApp.ModeSwitch);
   };
 

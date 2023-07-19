@@ -12,12 +12,19 @@
                     <div class="navbar-nav ms-auto">
                         <a href="{{ url('/') }}" class="nav-item nav-link active">Inicio</a>
                         <a href="#quienes-somos" class="nav-item nav-link">Quiénes Somos</a>
-                        <a href="#servicios" class="nav-item nav-link">Servicios</a>
+                        <div class="nav-item dropdown">
+                            <a href="#servicios" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Servicios</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="#propietario" class="dropdown-item">¿Usted es propietario?</a>
+                                <a href="#viajero" class="dropdown-item">¿Usted es Viajero?</a>
+                                <a href="#habitante" class="dropdown-item">¿Futuro Viajero o Habitante?</a>
+                            </div>
+                        </div>
                         <a href="#contactame" class="nav-item nav-link">Contacto</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Idioma</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="property-list.html" class="dropdown-item">Fancés</a>
+                                <a href="property-list.html" class="dropdown-item">Francés</a>
                                 <a href="property-type.html" class="dropdown-item">Inglés</a>
                                 <a href="property-agent.html" class="dropdown-item">Español</a>
                             </div>

@@ -37,8 +37,7 @@ $accordion-s3-icon-collapsed: $ni-plus !default;
 
 .accordion {
     border-radius: $border-radius;
-    border: 1px solid $border-color;
-    background: $white; 
+    background: $white;
     &-heading {
         padding-bottom: 1.5rem;
     }
@@ -134,7 +133,12 @@ $accordion-s3-icon-collapsed: $ni-plus !default;
 .accordion-s2{
     border: none;  
     .accordion-icon {
-        right: 0;
+        @if($rtl==false){
+            right: 0;
+        }
+        @if($rtl==true){
+            left: 0;
+        }
         &:before{
             content: $accordion-s2-icon;
         }

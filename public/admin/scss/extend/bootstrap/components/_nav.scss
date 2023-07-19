@@ -180,7 +180,7 @@
         }
     }
 }
-@include media-breakpoint-down(xs){
+@include media-breakpoint-down(mb){
     .nav-tabs.is-stretch{
         margin-left: -$stretch-gap-x;
         margin-right: -$stretch-gap-x;

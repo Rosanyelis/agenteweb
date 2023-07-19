@@ -12,14 +12,3 @@
   padding: 0.28rem 0.65rem;
   font-size: 13px;
 }
-
-.summernote-lg{
-  &.summernote-minimal + .note-editor{
-    .note-editing-area{
-      .note-editable{
-        height: 400px !important;
-      }
-    }
-  }
-   
-}

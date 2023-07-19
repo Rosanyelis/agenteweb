@@ -27,7 +27,6 @@ $link-list-menu-icon-rtl: $ni-chevron-left !default;
     }
 }
 
-
 /// Link Check
 /////////////////////////////////////
 .link-check{
@@ -105,7 +104,7 @@ $link-list-menu-icon-rtl: $ni-chevron-left !default;
 /// Link List
 /////////////////////////////////////
 .link-list{
-    padding: .5rem 0;
+    padding: .75rem 0;
     + .link-list{
         @extend .link-bdr-t;
     }
@@ -130,11 +129,6 @@ $link-list-menu-icon-rtl: $ni-chevron-left !default;
             line-height: 1;
         }
     }
-    &.is-compact{
-        a{
-            padding: .375rem 0
-        }
-    }
 }
 
 /// Link List Options
@@ -155,7 +149,7 @@ $link-list-menu-icon-rtl: $ni-chevron-left !default;
     a{
         display: flex;
         align-items: center;
-        padding: .625rem 1.25rem;
+        padding: .625rem 1.125rem;
         font-size: $fx-sz-12;
         font-weight: $fw-medium;
         color: $base-text;
@@ -217,8 +211,9 @@ $link-list-menu-icon-rtl: $ni-chevron-left !default;
         transition: all .4s;
         line-height: 1.3rem;
         &:after{
-            position: absolute;
+             position: absolute;
             font-size: 1rem;
+            font-family: $nk-dashlite-font;
             @if($rtl==false){
                 right: 1.25rem;
                 content: $link-list-menu-icon-ltr;
@@ -227,7 +222,6 @@ $link-list-menu-icon-rtl: $ni-chevron-left !default;
                 content: $link-list-menu-icon-rtl;
                 left: 1.25rem;
             }
-            font-family: $nk-dashlite-font;
             color: $base-light;
             transition: .3s ease;
         }
@@ -241,6 +235,9 @@ $link-list-menu-icon-rtl: $ni-chevron-left !default;
     }
     li.active > a, a.active, a:hover, li.active > a .icon, a.active .icon, a:hover .icon, li.active > a:after, a.active:after, a:hover:after {
          color: $accent-color;
+    }
+    &.nav {
+        display: block;
     }
 }
 

@@ -366,17 +366,16 @@ $chat-meta-sap: $ni-dot !default;
                 content:$chat-meta-sap;
                 font-family: $nk-dashlite-font;
                 position: absolute;
-                top: 50%;
-                font-size: 11px;
-                line-height: 10px;
                 @if($rtl==false){
                     left: 0;
-                    transform: translate(-50%,-50%);
                 }
                 @if($rtl==true){
                     right: 0;
-                    transform: translate(50%,-50%);
                 }
+                top: 50%;
+                font-size: 11px;
+                line-height: 10px;
+                transform: translate(-50%,-50%);
                 opacity: .8;
             }
         }
@@ -714,8 +713,8 @@ $chat-meta-sap: $ni-dot !default;
     position: relative;
     display: flex;
     overflow: hidden;
-    min-height: calc(100vh - #{$header-height});
-    max-height: calc(100vh - #{$header-height});
+    min-height: calc(100vh - (#{$header-height} + 64px));
+    max-height: calc(100vh - (#{$header-height} + 64px));
     background: $white;
     &-blank{
         display: flex;
@@ -875,12 +874,7 @@ $chat-meta-sap: $ni-dot !default;
         &-search{
             position: absolute;
             top: calc(100% + 1rem);
-            @if($rtl==false){
-                left: 0;
-            }
-            @if($rtl==true){
-                right: 0;
-            }
+            left: 0;
             z-index: 9;
             width: 100%;
             padding: 0 1.75rem;
@@ -939,9 +933,6 @@ $chat-meta-sap: $ni-dot !default;
     &-profile{
         position: absolute;
         top: 0;
-        width: $chat-profile-width;
-        height: 100%;
-        max-height: 100%;
         @if($rtl==false){
             right: 0;
             transform: translateX(100%);
@@ -950,11 +941,14 @@ $chat-meta-sap: $ni-dot !default;
             left: 0;
             transform: translateX(-100%);
         }
+        width: $chat-profile-width;
+        height: 100%;
+        max-height: 100%;
         transition: transform .3s  ease-in-out;
         background: $white;
         z-index: 100;
         &-overlay{
-            position: fixed;
+            position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
@@ -971,8 +965,12 @@ $chat-meta-sap: $ni-dot !default;
 }
 
 
-@include media-breakpoint-down(xs){
+@include media-breakpoint-down(sm){
     .nk-chat{
+        border: none;
+        border-radius: $border-radius;
+        min-height: calc(100vh - (#{$header-height} + 85px));
+        max-height: calc(100vh - (#{$header-height} + 85px));
         &-head{
             padding: 0.75rem 1.25rem;
             &-user{
@@ -1102,28 +1100,6 @@ $chat-meta-sap: $ni-dot !default;
         }
     }
 }
-@include media-breakpoint-up(xl){
-    .nk-chat{
-        &-body{
-            &.profile-shown{
-                @if($rtl==false){
-                    padding-right: $chat-profile-width;
-                }
-                @if($rtl==true){
-                    padding-left: $chat-profile-width;
-                }
-            }
-        }
-        &-profile {
-            @if($rtl==false){
-                border-left: 1px solid $border-light;
-            }
-            @if($rtl==true){
-                border-right: 1px solid $border-light;
-            }
-        }
-    }
-}
 @include media-breakpoint-up(xxl){
     .nk-chat{
         &-aside{
@@ -1141,6 +1117,12 @@ $chat-meta-sap: $ni-dot !default;
         }
         &-profile{
             width: $chat-profile-width-xl;
+            @if($rtl==false){
+                border-left: 1px solid $border-light;
+            }
+            @if($rtl==true){
+                border-right: 1px solid $border-light;
+            }
         }
     }
 }

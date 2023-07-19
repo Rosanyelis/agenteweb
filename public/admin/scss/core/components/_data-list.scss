@@ -103,6 +103,9 @@
                 width: 40px;
             }
         }
+        .icon{
+            height: auto;
+        }
         &.disable{
             &:before{
                 display: none;
@@ -156,7 +159,12 @@
             align-items: center;
             &-end{
                 width: 200px;
-                text-align: right;
+                @if($rtl==false){
+                    text-align: right;
+                }
+                @if($rtl==true){
+                    text-align: left;
+                }
                 justify-content: flex-end;
             }
         }

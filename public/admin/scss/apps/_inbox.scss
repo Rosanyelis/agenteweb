@@ -26,13 +26,13 @@ $ibx-aside-width :      260px;
     &:before{
         @if($rtl==false){
             right: -8px;
-            border-width: 4px 0 4px 7px;
             border-color: transparent transparent transparent $border-light;
+            border-width: 4px 0 4px 7px;
         }
         @if($rtl==true){
             left: -8px;
-            border-width: 4px 7px 4px 0;
             border-color: transparent $border-light transparent transparent;
+            border-width: 4px 7px 4px 0;
         }
     }
     &:after{
@@ -109,16 +109,16 @@ $ibx-aside-width :      260px;
     position: relative;
     display: flex;
     overflow: hidden;
-    min-height: calc(100vh - #{$header-height});
-    max-height: calc(100vh - #{$header-height});
+    min-height: calc(100vh - (#{$header-height} + 64px));
+    max-height: calc(100vh - (#{$header-height} + 64px));
     background: $white;
     &-aside{
         position: absolute;
         background: $white;
         width: $ibx-aside-width;
         overflow: hidden;
-        min-height: calc(100vh - #{$header-height});
-        max-height: calc(100vh - #{$header-height});
+        height: 100%;
+        max-height: 100%;
         display: flex;
         flex-direction: column;
         align-items: stretch;
@@ -135,14 +135,10 @@ $ibx-aside-width :      260px;
         transition: transform .4s linear;
         + .toggle-overlay{
             z-index: 90;
+            position: absolute;
         }
         &.content-active{
             transform: none;
-        }
-        .simplebar-content {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
         }
     }
     &-nav{
@@ -150,6 +146,11 @@ $ibx-aside-width :      260px;
         flex-grow: 1;
         height: 100%;
         max-width: 100%;
+        .simplebar-content{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
         &-head{
             display: flex;
             align-items: center;
@@ -358,9 +359,9 @@ $ibx-aside-width :      260px;
         padding-bottom: 1.75rem;
     }
     &-status{
+        margin-top: auto;
         background: $lighter;
         padding: 1.5rem 1.5rem;
-        margin-top: auto;
         &-info{
             margin-bottom: 0.5rem;
             .icon{
@@ -630,7 +631,7 @@ $ibx-aside-width :      260px;
             position: static;
             transform: none;
             transition: none;
-            height: calc(100vh - 150px);
+            height: calc(100vh - 128px);
         }
         &-menu,&-label,&-contact{
             padding-left: 1rem;
@@ -757,7 +758,6 @@ $ibx-aside-width :      260px;
             }
             &-user{
                 flex-grow: 1;
-                // width: calc(100% - 40px);
                 .user-avatar{
                     height: 28px;
                     width: 28px;
@@ -777,8 +777,8 @@ $ibx-aside-width :      260px;
             &-tools{
                 position: absolute;
                 @if($rtl==false){
-                    text-align: right;
                     right: 28px;
+                    text-align: right;
                 }
                 @if($rtl==true){
                     text-align: left;
@@ -806,7 +806,7 @@ $ibx-aside-width :      260px;
     }
 }
 
-@include media-breakpoint-down(xs){
+@include media-breakpoint-down(mb){
     .nk-ibx{
         &-item{
             &-star{
@@ -863,6 +863,7 @@ $ibx-aside-width :      260px;
         }
     }
 }
+
 @include media-breakpoint-between(sm,md){
     .nk-ibx{
         &-aside {
@@ -872,7 +873,7 @@ $ibx-aside-width :      260px;
            padding-left: 1.5rem; 
            padding-right: 1.5rem; 
         }
-        &-nav-head{
+        &-nav-head, &-status {
             padding-left: 2.25rem;
             padding-right: 2.25rem;
         }

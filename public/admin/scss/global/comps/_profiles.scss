@@ -20,12 +20,7 @@
     &-value {
         color: $base-text;
         .wider & {
-            @if($rtl==false){
-                text-align: right;
-            }
-            @if($rtl==true){
-                text-align: left;
-            }
+            text-align: right;
             font-weight: $fw-medium;
             width: 100%;
         }

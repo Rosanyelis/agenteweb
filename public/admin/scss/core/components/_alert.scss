@@ -4,7 +4,6 @@
         justify-content: space-between;
         align-items: center;
     }
-    &-text{}
     &-actions{
         display: inline-flex;
         align-items: center;
@@ -13,7 +12,7 @@
                 margin-left: 1rem;
             }
             @if($rtl==true){
-                margin-right: 1rem;
+                margin-left: 1rem;
             }
         }
     }

@@ -33,7 +33,7 @@
 
 .nk-split {
     &-sm{
-        @include media-breakpoint-down(xs){
+        @include media-breakpoint-down(mb){
             flex-wrap: wrap;
         }
     }

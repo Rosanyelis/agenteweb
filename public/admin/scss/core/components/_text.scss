@@ -49,8 +49,8 @@
       padding-right: .25rem;
     }
     @if($rtl==true){
-      padding-right: .35rem;
       padding-left: .25rem;
+      padding-right: .35rem;
     }
     color: $base-300;
     &:before,&:after{
@@ -241,6 +241,7 @@ h6{
 .fs-22px{
   font-size: 22px;
 }
+
 .note-text{
   font-size: $fx-sz-12;
   font-style: italic;

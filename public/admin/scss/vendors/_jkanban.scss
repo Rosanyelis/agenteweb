@@ -43,7 +43,8 @@
   
   .kanban-board-header {
     background: $white;
-    border:1px solid $border-light;
+    border:0px solid $border-light;
+    box-shadow: 0px 1px 3px 0px rgba($base-color, 0.05);
     border-top: 3px solid $gray-300;
     border-radius: $border-radius;
     padding: .5rem 1.25rem;
@@ -111,7 +112,8 @@
   
   .kanban-item {
     border-radius: $border-radius;
-    border:1px solid $border-light;
+    border:0 solid $border-light;
+    box-shadow: 0px 1px 3px 0px rgba($base-color, 0.05);
     padding: 1rem 1.25rem;
     margin-bottom: 0.75rem;
     background: $white;

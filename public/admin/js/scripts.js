@@ -13,7 +13,6 @@
     _header_menu = 'nk-header-menu', 
     _sidebar     = 'nk-sidebar', 
     _sidebar_mob = 'nk-sidebar-mobile', 
-    _app_sidebar = 'nk-apps-sidebar',
     //breakpoints
     _break       = NioApp.Break;
 
@@ -24,16 +23,13 @@
     // ClassInit @v1.0
     NioApp.ClassBody = function() {
         NioApp.AddInBody(_sidebar); 
-        NioApp.AddInBody(_app_sidebar); 
     };
 
     // ClassInit @v1.0
     NioApp.ClassNavMenu = function() {
         NioApp.BreakClass('.'+_header_menu, _break.lg, { timeOut: 0 } );
-        NioApp.BreakClass('.'+_sidebar, _break.lg, {timeOut: 0, classAdd: _sidebar_mob} );
         $win.on('resize', function() {
             NioApp.BreakClass('.'+_header_menu, _break.lg);
-            NioApp.BreakClass('.'+_sidebar, _break.lg, {classAdd: _sidebar_mob} );
         });
     };
 
@@ -211,7 +207,7 @@
     // Show Menu @v1.0
     NioApp.TGL.showmenu = function(elm, opt){
         var toggle = (elm) ? elm : '.nk-nav-toggle', $toggle = $(toggle), $contentD = $('[data-content]'),
-            toggleBreak = $contentD.hasClass(_header_menu) ? _break.lg : _break.xl,
+            toggleBreak = ($contentD.hasClass(_header_menu)) ? _break.lg : _break.xl,
             toggleOlay = _sidebar + '-overlay', toggleClose = {profile: true, menu: false}, 
             def = { active: 'toggle-active', content: _sidebar + '-active', body: 'nav-shown', overlay: toggleOlay, break: toggleBreak, close: toggleClose }, 
             attr = (opt) ? extend(def, opt) : def;
@@ -231,8 +227,23 @@
             if(NioApp.Win.width < _break.xl || NioApp.Win.width < toggleBreak ){ 
                 NioApp.Toggle.removed($toggle.data('target'), attr);
             } 
+        }); 
+    };
+
+    // Compact Sidebar @v1.0
+    NioApp.sbCompact = function(){
+        var toggle = '.nk-nav-compact', $toggle = $(toggle), $content = $('[data-content]');
+
+        $toggle.on('click', function(e){
+            e.preventDefault();
+            var $self = $(this), get_target = $self.data('target'), 
+                $self_content = $('[data-content=' + get_target + ']');
+
+                $self.toggleClass('compact-active');
+                $self_content.toggleClass('is-compact');
         });
     };
+
 
     // Animate FormSearch @v1.0
     NioApp.Ani.formSearch= function(elm, opt){
@@ -795,6 +806,7 @@
         NioApp.coms.docReady.push(NioApp.Picker.init);
         NioApp.coms.docReady.push(NioApp.Addons.Init);
         NioApp.coms.docReady.push(NioApp.Wizard);
+        NioApp.coms.docReady.push(NioApp.sbCompact);
         NioApp.coms.winLoad.push(NioApp.ModeSwitch);
     }
 

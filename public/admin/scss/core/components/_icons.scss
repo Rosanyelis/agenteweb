@@ -124,6 +124,7 @@
                 }
             }
         }
+        
         &-alt{
             display: inline-flex;
             align-items: flex-end;
@@ -150,6 +151,7 @@ $icon-adj-bg: (
     "google"        $brand-color-google,
     "btc-dim"       mix($brand-color-bitcoin, #fff, 13%),
     "eth-dim"       mix($brand-color-ethereum, #fff, 13%),
+    
     "white"         $white
 );
 
@@ -181,6 +183,7 @@ $icon-adj-colors: (
     "google-dim":      $brand-color-google,
     "btc-dim":         $brand-color-bitcoin,
     "eth-dim":         $brand-color-ethereum,
+    
     'white':           $base-text,
 );
 

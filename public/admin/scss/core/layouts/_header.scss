@@ -55,6 +55,8 @@
         background: $header-bg-color;
         border-bottom: 1px solid $header-border-bottom;
         padding: 0 $header-main-gap-x;
+        box-shadow: 0px 1px 3px 0px rgba($base-color, 0.05);
+        z-index: 1010;
         @if($dark_option==true) {
             &.is-dark:not([class*=bg-]){
                 background: $header-bg-dark-color;
@@ -75,7 +77,6 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1010;
             min-width: $header-min-width;
             + .nk-content {
                 margin-top: $header-height;
@@ -119,6 +120,25 @@
             }
             .sub-text,.overline-title,.overline-title-alt{
                 color: $base-light;
+            }
+        }
+        &-search{
+            display: none;
+            .form-control{
+                background-color: transparent;
+                border: none;
+            }
+            .icon{
+                @if($dark_option==true) {
+                    .is-dark &{
+                        color: $white;
+                    }
+                }
+                @if($dark_theme_option==true) {
+                    .is-theme &{
+                        color: $white;
+                    }
+                }
             }
         }
     }
@@ -218,6 +238,11 @@
     .nk{
         &-header{
             padding: 0 $header-main-gap-x-sm;
+            &-search{
+                display: flex;
+                align-items: center;
+                flex-grow: 1;
+            }
         }
         &-quick{
             &-nav{
@@ -253,12 +278,6 @@
 .nk-header{
     &-menu{
         position: fixed;
-        top: 0;
-        width: 280px;
-        height: 100vh;
-        max-height: 100vh;
-        z-index: 999;
-        background: $white;
         @if($rtl==false){
             left: 0;
             transform: translateX(-100%);
@@ -267,8 +286,14 @@
             right: 0;
             transform: translateX(100%);
         }
+        top: 0;
+        width: 280px;
+        height: 100vh;
+        max-height: 100vh;
+        z-index: 999;
+        background: $white;
         &-inner{
-            // overflow: auto;
+            overflow: auto;
             max-height: 100%;
             min-height: 100%;
         }
@@ -316,12 +341,7 @@
             background: transparent;
             height: auto;
             max-height: auto;
-            @if($rtl==false){
-                border-right: none;
-            }
-            @if($rtl==true){
-                border-left: none;
-            }
+            border-right: none;
             width: auto;
             padding: 0;
             overflow: visible;

@@ -46,12 +46,9 @@
     border-radius: $border-radius;
     overflow: auto;
 }
-.card-preview{
-    border: 1px solid $border-color;
-}
+
 .code-block{
     position: relative;
-    border: 1px solid $border-color; 
     padding:1.25rem;
     background: $white;
     border-radius: $border-radius;

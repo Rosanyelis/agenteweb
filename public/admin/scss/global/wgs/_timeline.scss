@@ -69,18 +69,18 @@
         flex-shrink: 0;
         line-height: 1rem;
         .icon{
+            @if($rtl==false){
+                right: 0;
+                margin-right: 0.25rem;
+            }
+            @if($rtl==true){
+                left: 0;
+                margin-left: 0.25rem;
+            }
             vertical-align: middle;
             color: $base-light;
             display: inline-block;
             position: absolute;
-            @if($rtl==false){
-                margin-right: 0.25rem;
-                right: 0;
-            }
-            @if($rtl==true){
-                margin-left: 0.25rem;
-                left: 0;
-            }
             top: 2px;
         }
     }

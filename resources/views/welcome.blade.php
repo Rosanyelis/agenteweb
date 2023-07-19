@@ -86,8 +86,13 @@
         <div id="servicios" class="container-xxl py-5">
             
             <div class="container">
-                <div class="row g-5 gy-3 align-items-center">
-                    <div class="col-lg-12 wow fadeIn" data-wow-delay="0.1s"><h1 class="my-4 text-center">Servicios</h1></div>
+                <div  class="row g-5 mb-5 align-items-center">
+                    <div class="col-lg-12 wow fadeIn" data-wow-delay="0.1s">
+                        <h1 class="my-4 text-center">Servicios</h1>
+                    </div>
+                </div>
+                <div id="propietario" class="row g-5 mt-5 mb-5 align-items-center">
+
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
                         <div class="about-img position-relative overflow-hidden p-5 pe-0">
                             <img class="img-fluid w-100" src="{{ asset('img/team-1.jpg') }}">
@@ -104,8 +109,8 @@
                             <a class="btn btn-secondary py-3 px-5" href="">Fórmulas</a>
                         </div>
                     </div>
-
-                    <div class="w-100 my-5"></div>
+                </div>
+                <div id="viajero" class="row g-5 mt-5 mb-5 align-items-center">
 
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.2s">
                         <h1 class="mb-4">Usted es Viajero?</h1>
@@ -124,8 +129,9 @@
                         </div>
                     </div>
 
-                    <div class="w-100 my-5"></div>
+                </div>
 
+                <div id="habitante" class="row g-5 align-items-center mt-4 mb-5">
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                         <div class="about-img position-relative overflow-hidden p-5 pe-0">
                             <img class="img-fluid w-100" src="img/about.jpg">

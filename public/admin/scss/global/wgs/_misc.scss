@@ -38,10 +38,10 @@
 				justify-content: center;
 				@if($rtl==false){
 					margin-right: 0.5rem;
-                }
-                @if($rtl==true){
+				}
+				@if($rtl==true){
 					margin-left: 0.5rem;
-                }
+				}
             }
         }
         &.buy{
@@ -128,10 +128,10 @@
 			.dot{
 				@if($rtl==false){
 					margin-right: 0.5rem;
-                }
-                @if($rtl==true){
+				}
+				@if($rtl==true){
 					margin-left: 0.5rem;
-                }
+				}
 			}
 		}
 	}
@@ -140,6 +140,39 @@
 //order table
 .nk-tb-orders-type{
 	width: 66px;
+}
+
+// Sales data widgets
+.nk-sale-data{
+	flex-shrink: 0;
+	&-group{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.amount{
+		display: block;
+		font-size: 1.75rem;
+		color: $base-color;
+		.change{
+			font-size: .875rem;
+		}
+		&.sm{
+			font-size: 1.125rem;
+			color: $base-light;
+		}
+	}
+	.sub-title{
+		color: $base-light;
+		font-size: $fx-sz-12;
+		.change{
+			@if($rtl==false){
+				margin-right: 0.5rem;
+			}
+			@if($rtl==true){
+				margin-left: 0.5rem;
+			}
+		}
+	}
 }
 
 // Sales data widgets
@@ -206,9 +239,9 @@
 		@if($rtl==false){
 			margin-left: 1rem;
 		}
-		@if($rtl==true){
+        @if($rtl==true){
 			margin-right: 1rem;
-		}
+        }
 		.time{
 			display: block;
 			font-size: $fx-sz-12;
@@ -239,8 +272,8 @@
 		flex-grow: 1;
 		@if($rtl==false){
 			margin-left: 1rem;
-		}
-		@if($rtl==true){
+        }
+        @if($rtl==true){
 			margin-right: 1rem;
 		}
 		.title{

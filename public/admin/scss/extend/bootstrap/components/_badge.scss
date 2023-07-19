@@ -118,6 +118,24 @@ $dim-badge: map-merge(
         border-radius:50%;
         background: currentColor;
     }
+    &.has-bg{
+        border-radius: 20px;
+        @if($rtl==false){
+            padding:3px ($badge-dot-width + $badge-dot-gap) 3px ($badge-dot-width + $badge-dot-gap)*2;
+        }
+        @if($rtl==true){
+            padding:3px ($badge-dot-width + $badge-dot-gap)*2 3px ($badge-dot-width + $badge-dot-gap);
+        }
+        &:before{
+            @if($rtl==false){
+                left: ($badge-dot-width + $badge-dot-gap);
+            }
+            @if($rtl==true){
+                right: ($badge-dot-width + $badge-dot-gap);
+            }
+            margin-top: 0;
+        }
+    }
     &.badge-sm, &.badge-md {
         @if($rtl==false){
             padding-left: $badge-dot-width-sm + $badge-dot-gap-sm;
@@ -129,6 +147,23 @@ $dim-badge: map-merge(
             height: $badge-dot-width-sm;
             width: $badge-dot-width-sm;
             margin-top: 0;
+        }
+        &.has-bg{
+            border-radius: 20px;
+            @if($rtl==false){
+                padding:5px ($badge-dot-width-sm + $badge-dot-gap-sm)*.75 5px ($badge-dot-width-sm + $badge-dot-gap-sm)*1.75;
+            }
+            @if($rtl==true){
+                padding:5px ($badge-dot-width-sm + $badge-dot-gap-sm)*1.75 5px ($badge-dot-width-sm + $badge-dot-gap-sm)*.75;
+            }
+            &:before{
+                @if($rtl==false){
+                    left: ($badge-dot-width-sm + $badge-dot-gap-sm)*.75;
+                }
+                @if($rtl==true){
+                    right: ($badge-dot-width-sm + $badge-dot-gap-sm)*.75;
+                }
+            }
         }
     }
     &.badge-lg, &.badge-xl{
@@ -144,7 +179,6 @@ $dim-badge: map-merge(
             margin-top: 0;
         }
     }
-    &-mb {}
 }
 
 $dot-badge: map-merge(
@@ -155,8 +189,13 @@ $dot-badge: map-merge(
     )
 );
 @each $name, $color in $dot-badge {
-    .badge-dot.badge-#{$name} {
-        color: $color;
+    .badge-dot{
+        &.badge-#{$name} {
+            color: $color;
+            &.has-bg{
+                background-color: rgba($color,.15);
+            }
+        }
     }
 }
 

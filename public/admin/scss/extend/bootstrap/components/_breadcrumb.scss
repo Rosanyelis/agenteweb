@@ -15,12 +15,12 @@
         + .breadcrumb-item::before{
             .breadcrumb-arrow &{
                 font-family: $nk-dashlite-font;
-                content: $ni-forward-ios;
-            }
-        }
-        + .breadcrumb-item::before{
-            .breadcrumb-simple &{
-                content: '';
+                @if($rtl==false){
+                    content: $ni-forward-ios;
+                }
+                @if($rtl==true){
+                    content: $ni-back-ios;
+                }
             }
         }
         &.active {
@@ -30,6 +30,7 @@
         }
     }
 }
+
 .breadcrumb-alt{
     .breadcrumb{
         &-item{

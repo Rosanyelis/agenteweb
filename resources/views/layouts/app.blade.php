@@ -1,36 +1,59 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="js">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <base href="../">
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="{{ asset('./images/favicon.png') }}">
+    <!-- Page Title  -->
+    <title>Administracion | Web</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" href="{{ asset('./admin/assets/css/dashlite.css?ver=2.9.0') }}">
+    <link id="skin-default" rel="stylesheet" href="{{ asset('./admin/assets/css/theme.css?ver=2.9.0') }}">
+</head>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+<body class="nk-body bg-lighter npc-default has-sidebar ">
+    <div class="nk-app-root">
+        <!-- main @s -->
+        <div class="nk-main ">
+            <!-- sidebar @s -->
             @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+            <!-- sidebar @e -->
+            <!-- wrap @s -->
+            <div class="nk-wrap ">
+                <!-- main header @s -->
+                @include('layouts.top-navigation')
+                <!-- main header @e -->
+                <!-- content @s -->
+                @yield('contenido')
+                <!-- content @e -->
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <div class="container-fluid">
+                        <div class="nk-footer-wrap">
+                            <div class="nk-footer-copyright"> &copy; Web Noemie. Todos los Derechos Reservados. Template by <a
+                                    href="https://softnio.com" target="_blank">Softnio</a>
+                            </div>
+                        </div>
                     </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
         </div>
-    </body>
+        <!-- main @e -->
+    </div>
+    <!-- app-root @e -->
+
+    <!-- JavaScript -->
+    <script src="{{ asset('./admin/assets/js/bundle.js?ver=2.9.0') }}"></script>
+    <script src="{{ asset('./admin/assets/js/scripts.js?ver=2.9.0') }}"></script>
+</body>
+
 </html>
